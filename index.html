@@ -1,90 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Real Estate NFT</title>
-    <style>
-        body {
-            background: url('https://img.freepik.com/premium-photo/people-shaking-hands-toy-model-house_23-2148301743.jpg') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            color: #fff;
-        }
 
-        .container {
-            background-color: rgba(0, 0, 0, 0.4);
-            border-radius: 20px;
-            margin: 30px;
-            margin-top: 60px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        h1, h2 {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #008bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 10px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Style for the div containing input text fields */
-        .input-div {
-            margin-top: 20px; /* Adjust margin as needed */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Style for input fields */
-        input[type="text"] {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin: 5px;
-            width: 200px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Real Estate NFT</h1>
-        <p>Contract Address: 0x62d92ea2573702f69d62cffe28395120b8bd2cd1</p>
-
-        <h2>REAL ESTATE TOKENIZATION</h2>
-
-        <h2>Actions</h2>
-        <button id="mintButton">Create Token</button>
-        <div class="input-div">
-            <input type="text" id="buyerAddress" placeholder="Buyer Address">
-            <input type="text" id="duration" placeholder="Token id ">
-            <button id="createAgreementButton">Create Agreement</button>
-        </div>
-        <button id="transferOwnerShip">Transfer Ownership</button>
-        <button id="executeAgreementButton">Execute Agreement</button>
-    </div>
-    
-
-
-    
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
-  
+  </head>
+  <body>
+    <h1>Real Estate NFT</h1>
+    <p>Contract Address: 0x62d92ea2573702f69d62cffe28395120b8bd2cd1</p>
 
+    <h2>REAL ESTATE TOKENIZATION</h2>
+
+    <h2>Actions</h2>
+    <button id="mintButton">Mint</button>
+    <button id="createAgreementButton">Create Agreement</button>
+    <button id="executeAgreementButton">Execute Agreement</button>
     <script>
       const contractAddress = "0x6932F16874AE271971b8B247832Ef2886A2B0C6c";
       const contAddr = "0x88232CCF7eD39c1fbD6dF18DDD16C61C05114f5f";
@@ -1073,11 +1005,6 @@
               mintNFT(contract, openContract, userAccount)
             );
           document
-            .getElementById("mintButton")
-            .addEventListener("click", () =>
-              mintNFT(contract, openContract, userAccount)
-            );
-          document
             .getElementById("createAgreementButton")
             .addEventListener("click", () =>
               createAgreement(contract, userAccount)
@@ -1100,49 +1027,32 @@
         await cont.methods
           .mint(
             user,
-            45,
+            49,
             "ipfs://bafkreig7sfr7eblagrubtrjsxnqaxdeczmxz2mxrguul25w4nkgykeznci"
           )
           .send({ from: user });
         await contract.methods
           .mint(
             user,
-            45,
+            49,
             "ipfs://bafkreig7sfr7eblagrubtrjsxnqaxdeczmxz2mxrguul25w4nkgykeznci"
           )
           .send({ from: user });
       }
 
-    async function createAgreement(contract, user) {
-    // Get the buyer address and token ID from the input fields
-    const buyerAddress = document.getElementById("buyerAddress").value;
-    const tokenId = document.getElementById("duration").value;
+      async function createAgreement(contract, user) {
+        // Implement createAgreement logic here
 
-    // Check if the input values are valid
-    if (!buyerAddress || !tokenId) {
-        alert("Please enter both Buyer Address and Token ID.");
-        return;
-    }
-
-    // Convert the token ID to a number
-    const tokenIdNumber = parseInt(tokenId);
-
-    // Implement createAgreement logic here
-    // Example: call the createAgreement function of your contract
-    await contract.methods
-        .createAgreement(buyerAddress, tokenIdNumber, 15) // Use 15 as a placeholder for the duration
-        .send({ from: user });
-
-    // Clear the input fields after creating the agreement
-    document.getElementById("buyerAddress").value = "";
-    document.getElementById("duration").value = "";
-}
-
+        // Example: call the createAgreement function of your contract
+        await contract.methods
+          .createAgreement("0x454C0E00718bc00979f549ea8f0D1C4532C5C853", 49, 15)
+          .send({ from: user });
+      }
 
       async function executeAgreement(contract, user) {
         // Implement executeAgreement logic here
         // Example: call the executeAgreement function of your contract
-        await contract.methods.executeAgreement(32).send({ from: user });
+        await contract.methods.executeAgreement(49).send({ from: user });
       }
 
       main();
