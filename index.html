@@ -1,23 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate NFT</title>
+    <style>
+        body {
+            background: url('https://img.freepik.com/premium-photo/people-shaking-hands-toy-model-house_23-2148301743.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
 
+        .container {
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 20px;
+            margin: 30px;
+             margin-top: 60px; 
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #008bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Real Estate NFT</h1>
+        <p>Contract Address: 0x62d92ea2573702f69d62cffe28395120b8bd2cd1</p>
+
+        <h2>REAL ESTATE TOKENIZATION</h2>
+
+        <h2>Actions</h2>
+        <button id="mintButton">Create Token</button>
+        <button id="createAgreementButton">Create Agreement</button>
+        <button id="transferOwnerShip">Transfer OwnerShip</button>
+        <button id="executeAgreementButton">Execute Agreement</button>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
-  </head>
-  <body>
-    <h1>Real Estate NFT</h1>
-    <p>Contract Address: 0x62d92ea2573702f69d62cffe28395120b8bd2cd1</p>
+  
 
-    <h2>REAL ESTATE TOKENIZATION</h2>
-
-    <h2>Actions</h2>
-    <button id="mintButton">Mint</button>
-    <button id="createAgreementButton">Create Agreement</button>
-    <button id="transferOwnerShip">transferOwnerShip</button>
-    <button id="executeAgreementButton">Execute Agreement</button>
     <script>
       const contractAddress = "0x6932F16874AE271971b8B247832Ef2886A2B0C6c";
       const contAddr = "0x88232CCF7eD39c1fbD6dF18DDD16C61C05114f5f";
