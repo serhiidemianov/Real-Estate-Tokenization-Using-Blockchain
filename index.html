@@ -18,7 +18,7 @@
             background-color: rgba(0, 0, 0, 0.4);
             border-radius: 20px;
             margin: 30px;
-             margin-top: 60px; 
+            margin-top: 60px;
             padding: 20px;
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -42,6 +42,23 @@
         button:hover {
             background-color: #0056b3;
         }
+
+        /* Style for the div containing input text fields */
+        .input-div {
+            margin-top: 20px; /* Adjust margin as needed */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Style for input fields */
+        input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px;
+            width: 200px;
+        }
     </style>
 </head>
 <body>
@@ -53,10 +70,17 @@
 
         <h2>Actions</h2>
         <button id="mintButton">Create Token</button>
-        <button id="createAgreementButton">Create Agreement</button>
-        <button id="transferOwnerShip">Transfer OwnerShip</button>
+        <div class="input-div">
+            <input type="text" id="buyerAddress" placeholder="Buyer Address">
+            <input type="text" id="duration" placeholder="Token id ">
+            <button id="createAgreementButton">Create Agreement</button>
+        </div>
+        <button id="transferOwnerShip">Transfer Ownership</button>
         <button id="executeAgreementButton">Execute Agreement</button>
     </div>
+    
+
+
     
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
   
