@@ -1113,14 +1113,31 @@
           .send({ from: user });
       }
 
-      async function createAgreement(contract, user) {
-        // Implement createAgreement logic here
+    async function createAgreement(contract, user) {
+    // Get the buyer address and token ID from the input fields
+    const buyerAddress = document.getElementById("buyerAddress").value;
+    const tokenId = document.getElementById("duration").value;
 
-        // Example: call the createAgreement function of your contract
-        await contract.methods
-          .createAgreement("0x454C0E00718bc00979f549ea8f0D1C4532C5C853", 32, 15)
-          .send({ from: user });
-      }
+    // Check if the input values are valid
+    if (!buyerAddress || !tokenId) {
+        alert("Please enter both Buyer Address and Token ID.");
+        return;
+    }
+
+    // Convert the token ID to a number
+    const tokenIdNumber = parseInt(tokenId);
+
+    // Implement createAgreement logic here
+    // Example: call the createAgreement function of your contract
+    await contract.methods
+        .createAgreement(buyerAddress, tokenIdNumber, 15) // Use 15 as a placeholder for the duration
+        .send({ from: user });
+
+    // Clear the input fields after creating the agreement
+    document.getElementById("buyerAddress").value = "";
+    document.getElementById("duration").value = "";
+}
+
 
       async function executeAgreement(contract, user) {
         // Implement executeAgreement logic here
